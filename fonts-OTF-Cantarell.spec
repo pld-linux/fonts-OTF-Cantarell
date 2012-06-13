@@ -1,11 +1,11 @@
 Summary:	Cantarell fonts
 Name:		fonts-OTF-Cantarell
-Version:	0.0.8
+Version:	0.0.9
 Release:	1
 License:	OFL
 Group:		Fonts
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/0.0/cantarell-fonts-%{version}.tar.xz
-# Source0-md5:	ceee17ecce342d8e1de9dc6f6a83a8ce
+# Source0-md5:	606275190e4c1927ce4b4cfdb55363a2
 URL:		http://abattis.org/cantarell/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
