@@ -1,4 +1,5 @@
 Summary:	Cantarell fonts
+Summary(pl.UTF-8):	Fonty Cantarell
 Name:		fonts-OTF-Cantarell
 Version:	0.0.9
 Release:	1
@@ -18,6 +19,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Cantarell is a set of fonts designed by Dave Crossland. It is a
 sans-serif Humanist typeface family.
+
+%description -l pl.UTF-8
+Cantarell to zbiór fontów zaprojektowanych przez Dave'a Crosslanda.
+Jest to rodzina krojów bezszeryfowych Humanist.
 
 %prep
 %setup -q -n cantarell-fonts-%{version}
@@ -50,4 +55,4 @@ fontpostinst OTF
 %doc NEWS README
 %{_sysconfdir}/fonts/conf.avail/31-cantarell.conf
 %{_sysconfdir}/fonts/conf.d/31-cantarell.conf
-%{_otffontsdir}/*.otf
+%{_otffontsdir}/Cantarell-*.otf
