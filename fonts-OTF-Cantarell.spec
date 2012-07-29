@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Fonty Cantarell
 Name:		fonts-OTF-Cantarell
 Version:	0.0.9
 Release:	1
-License:	OFL
+License:	OFL v1.1
 Group:		Fonts
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/0.0/cantarell-fonts-%{version}.tar.xz
 # Source0-md5:	606275190e4c1927ce4b4cfdb55363a2
@@ -52,7 +52,7 @@ fontpostinst OTF
 
 %files
 %defattr(644,root,root,755)
-%doc NEWS README
+%doc COPYING NEWS README
 %{_sysconfdir}/fonts/conf.avail/31-cantarell.conf
 %{_sysconfdir}/fonts/conf.d/31-cantarell.conf
 %{_otffontsdir}/Cantarell-*.otf
