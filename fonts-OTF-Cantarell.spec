@@ -1,13 +1,13 @@
 Summary:	Cantarell fonts
 Summary(pl.UTF-8):	Fonty Cantarell
 Name:		fonts-OTF-Cantarell
-Version:	0.0.25
+Version:	0.111
 Release:	1
 License:	OFL v1.1
 Group:		Fonts
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/0.0/cantarell-fonts-%{version}.tar.xz
-# Source0-md5:	8fa68460bb292b9c9441af10f99d99d7
-URL:		http://abattis.org/cantarell/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/0.111/cantarell-fonts-%{version}.tar.xz
+# Source0-md5:	6916664e08fe3692be0a52b0f55560c2
+URL:		https://gitlab.gnome.org/GNOME/cantarell-fonts/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	fontpostinst
@@ -18,29 +18,26 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_otffontsdir	%{_fontsdir}/OTF
 
 %description
-Cantarell is a set of fonts designed by Dave Crossland. It is a
-sans-serif Humanist typeface family.
+Cantarell is a set of fonts originally designed by Dave Crossland. It
+is a sans-serif Humanist typeface family.
 
 %description -l pl.UTF-8
-Cantarell to zbiór fontów zaprojektowanych przez Dave'a Crosslanda.
-Jest to rodzina krojów bezszeryfowych Humanist.
+Cantarell to zbiór fontów pierwotnie zaprojektowanych przez Dave'a
+Crosslanda. Jest to rodzina krojów bezszeryfowych Humanist.
 
 %prep
 %setup -q -n cantarell-fonts-%{version}
 
 %build
-%configure
-%{__make}
+%meson build \
+	-Dfontsdir=%{_otffontsdir}
+
+%meson_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_otffontsdir}
-install -d $RPM_BUILD_ROOT%{_datadir}/fontconfig/conf.avail
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/fonts/conf.d
 
-cp -a otf/*.otf $RPM_BUILD_ROOT%{_otffontsdir}
-cp fontconfig/31-cantarell.conf $RPM_BUILD_ROOT%{_datadir}/fontconfig/conf.avail
-ln -s %{_datadir}/fontconfig/conf.avail/31-cantarell.conf $RPM_BUILD_ROOT%{_sysconfdir}/fonts/conf.d
+%meson_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -53,7 +50,6 @@ fontpostinst OTF
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING NEWS README
-%{_datadir}/fontconfig/conf.avail/31-cantarell.conf
-%{_sysconfdir}/fonts/conf.d/31-cantarell.conf
+%doc COPYING NEWS README.md
 %{_otffontsdir}/Cantarell-*.otf
+%{_datadir}/metainfo/org.gnome.cantarell.metainfo.xml
