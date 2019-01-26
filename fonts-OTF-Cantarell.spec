@@ -8,6 +8,8 @@ Group:		Fonts
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/0.111/cantarell-fonts-%{version}.tar.xz
 # Source0-md5:	6916664e08fe3692be0a52b0f55560c2
 URL:		https://gitlab.gnome.org/GNOME/cantarell-fonts/
+BuildRequires:	meson
+BuildRequires:	ninja
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	fontpostinst
