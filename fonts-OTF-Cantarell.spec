@@ -12,6 +12,7 @@ BuildRequires:	gettext-its-metainfo
 BuildRequires:	gettext-tools
 BuildRequires:	meson
 BuildRequires:	ninja
+BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	fontpostinst
