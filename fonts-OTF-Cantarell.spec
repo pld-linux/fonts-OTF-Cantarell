@@ -1,18 +1,18 @@
 Summary:	Cantarell fonts
 Summary(pl.UTF-8):	Fonty Cantarell
 Name:		fonts-OTF-Cantarell
-Version:	0.201
+Version:	0.300
 Release:	1
 License:	OFL v1.1
 Group:		Fonts
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/cantarell-fonts/%{version}/cantarell-fonts-%{version}.tar.xz
-# Source0-md5:	8f47a0e6bb76b6bb816ef61d4f80ec8a
+Source0:	https://download.gnome.org/sources/cantarell-fonts/%{version}/cantarell-fonts-%{version}.tar.xz
+# Source0-md5:	123db3d3b36160289aa299cf80551ba4
 URL:		https://gitlab.gnome.org/GNOME/cantarell-fonts/
 BuildRequires:	gettext-its-metainfo
 BuildRequires:	gettext-tools
 BuildRequires:	meson
-BuildRequires:	ninja
-BuildRequires:	rpmbuild(macros) >= 1.727
+BuildRequires:	ninja >= 1.5
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	fontpostinst
@@ -37,12 +37,12 @@ Crosslanda. Jest to rodzina krojów bezszeryfowych Humanist.
 %meson build \
 	-Dfontsdir=%{_otffontsdir}
 
-%meson_build -C build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -C build
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
