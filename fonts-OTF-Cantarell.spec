@@ -1,17 +1,29 @@
 Summary:	Cantarell fonts
 Summary(pl.UTF-8):	Fonty Cantarell
 Name:		fonts-OTF-Cantarell
-Version:	0.300
+Version:	0.303.1
 Release:	1
 License:	OFL v1.1
 Group:		Fonts
-Source0:	https://download.gnome.org/sources/cantarell-fonts/%{version}/cantarell-fonts-%{version}.tar.xz
-# Source0-md5:	123db3d3b36160289aa299cf80551ba4
+Source0:	https://download.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-%{version}.tar.xz
+# Source0-md5:	a9be59ddb29204dcfd3357f201949b8c
 URL:		https://gitlab.gnome.org/GNOME/cantarell-fonts/
 BuildRequires:	gettext-its-metainfo
 BuildRequires:	gettext-tools
 BuildRequires:	meson
 BuildRequires:	ninja >= 1.5
+BuildRequires:	psautohint >= 2.0.0
+BuildRequires:	python3-attrs >= 18.2
+BuildRequires:	python3-cffsubr >= 0.2.8
+BuildRequires:	python3-fontMath >= 0.5.0
+# fontTools[ufo,lxml,unicode]
+BuildRequires:	python3-fonttools >= 4.0.0
+BuildRequires:	python3-lxml >= 4
+BuildRequires:	python3-skia-pathops
+BuildRequires:	python3-statmake >= 0.1.3
+# ufo2ft[cffsubr]
+BuildRequires:	python3-ufo2ft >= 2.15.0
+BuildRequires:	python3-ufoLib2 >= 0.4.0
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
